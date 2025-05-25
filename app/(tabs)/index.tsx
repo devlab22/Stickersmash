@@ -1,4 +1,4 @@
-import { ImageSourcePropType, View, StyleSheet } from "react-native";
+import { ImageSourcePropType, View, StyleSheet, Platform } from "react-native";
 import ImageViewer from '@/components/ImageViewer';
 import Button from '@/components/Button';
 import * as ImagePicker from 'expo-image-picker';
@@ -10,6 +10,7 @@ import EmojiList from '@/components/EmojiList';
 import EmojiSticker from '@/components/EmojiSticker';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as MediaLibrary from 'expo-media-library';
+import { captureRef } from 'react-native-view-shot';
 
 const PlaceholderImage = require('@/assets/images/background-image.png');
 
@@ -53,7 +54,21 @@ export default function Index() {
   };
 
   const onSaveImageAsync = async () => {
-    // we will implement this later
+    
+      try {
+      const localUri = await captureRef(imageRef, {
+        height: 440,
+        quality: 1,
+      });
+
+      await MediaLibrary.saveToLibraryAsync(localUri);
+      if (localUri) {
+        alert('Saved!');
+      }
+    } catch (e) {
+      console.log(e);
+    }
+    
   };
 
   return (
