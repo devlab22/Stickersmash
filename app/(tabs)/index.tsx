@@ -1,4 +1,4 @@
-import { ImageSourcePropType, View, StyleSheet, Platform } from "react-native";
+import { ImageSourcePropType, View, StyleSheet } from "react-native";
 import ImageViewer from '@/components/ImageViewer';
 import Button from '@/components/Button';
 import * as ImagePicker from 'expo-image-picker';

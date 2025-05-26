@@ -12,9 +12,9 @@ const Card = ({ style, children, onPress}: Props) => {
             style={[styles.card, style]}
             onPress={onPress}
             >
-            <View>
+           
                 {children}
-            </View>
+           
         </Pressable>
     )
 }
@@ -24,8 +24,9 @@ export default Card
 const styles = StyleSheet.create({
     card: {
         width: '90%',
-        paddingVertical: 10,
-        paddingHorizontal: 16,
+       // padding: 20,
+      //  paddingVertical: 10,
+      //  paddingHorizontal: 16,
         borderRadius: 8,
         boxShadow: '4px 4px 4px 4px rgba(120,120,120,1)'
     }
